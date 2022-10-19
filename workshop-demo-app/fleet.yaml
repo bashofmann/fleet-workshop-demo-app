@@ -1,0 +1,20 @@
+defaultNamespace: workshop-demo-app
+
+helm:
+  releaseName: workshop-demo-app
+  repo: https://bashofmann.github.io/workshop-demo-app/
+  chart: workshop-demo-app
+  version: 1.0.0
+  values:
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+      hosts:
+        - host: workshop-demo-app.workshop.plgrnd.be
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+      tls:
+        - hosts:
+            - workshop-demo-app.workshop.plgrnd.be
