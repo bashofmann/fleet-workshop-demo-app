@@ -6,6 +6,7 @@ helm:
   chart: workshop-demo-app
   version: 1.0.0
   values:
+    replicaCount: 2
     ingress:
       enabled: true
       annotations:
